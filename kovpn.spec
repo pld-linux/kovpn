@@ -3,7 +3,7 @@ Summary:	Simple OpenVPN GUI for KDE
 Name:		kovpn
 Version:	0.3
 Release:	0.1
-License:	GPL
+License:	GPL v2
 Group:		X11/Applications
 Source0:	http://home.bawue.de/~lighter/www.enlighter.de/files/%{name}-%{version}%{_rc}.tar.bz2
 # Source0-md5:	5cb3ddf5248d3d83b96d831555ef1cf7
