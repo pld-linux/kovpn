@@ -1,4 +1,4 @@
-%define		_rc _pre6
+%define		_rc pre7
 Summary:	Simple OpenVPN GUI for KDE
 Summary(pl.UTF-8):	Prosty interfejs graficzny do OpenVPN-a dla KDE
 Name:		kovpn
@@ -6,11 +6,9 @@ Version:	0.3
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://home.bawue.de/~lighter/www.enlighter.de/files/%{name}-%{version}%{_rc}.tar.bz2
-# Source0-md5:	5cb3ddf5248d3d83b96d831555ef1cf7
-Patch0:		kde-ac260.patch
-Patch1:		kde-am.patch
-URL:		http://www.kde-apps.org/content/show.php?content=37043
+Source0:	http://projects.fslab.de/projects/kovpn/chrome/site/%{name}-%{version}.%{_rc}.tar.bz2
+# Source0-md5:	19b61cf9f84088baffbd5bb0a287422c
+URL:		http://projects.fslab.de/projects/kovpn
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
@@ -55,12 +53,11 @@ Wymaga pewnych zmian w pliku konfiguracyjnym OpenVPN-a - trzeba
 włączyć interfejs zarządzający.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}-%{version}.%{_rc}
 
 %build
 cp -f /usr/share/automake/config.sub admin
+%{__make} -f admin/Makefile.common cvs
 %configure \
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
